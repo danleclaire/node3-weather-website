@@ -7,6 +7,9 @@ const forecast = (latitude, longitude, callback) => {
     const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=1ebb1b1b6ad712978fad167aed8562b4&units=metric'
     
     // 'https://api.openweathermap.org/data/2.5/weather?lat=45.5&lon=72.5&appid=1ebb1b1b6ad712978fad167aed8562b4&units=metric'
+
+    
+
     
 
     request({url, json: true}, (error, { body }) => {
@@ -17,7 +20,10 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location.', undefined )
             
         } else {
-            callback('', body.weather[0].description + '. The current temperature is ' + body.main.temp + ' degrees out. However, it feels like ' + body.main.feels_like + ' degrees out.')
+            const str = body.weather[0].description
+            const forecast = str.charAt(0).toUpperCase() + str.slice(1);
+
+            callback('', forecast  + '. The current temperature is ' + Math.round(body.main.temp) + ' degrees out. However, it feels like ' + Math.round(body.main.feels_like) + ' degrees out.')
         }
     })
 }
