@@ -19,7 +19,7 @@ const forecast = (latitude, longitude, callback) => {
             const str = body.weather[0].description
             const forecast = str.charAt(0).toUpperCase() + str.slice(1);
 
-            callback('', forecast  + '. The current temperature is ' + Math.round(body.main.temp) + ' degrees out. However, it feels like ' + Math.round(body.main.feels_like) + ' degrees out.')
+            callback('', forecast  + '. The current temperature outside is ' + Math.round(body.main.temp) + ' degrees. However, it feels like ' + Math.round(body.main.feels_like) + ' degrees.')
         }
     })
 }
