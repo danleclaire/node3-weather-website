@@ -8,11 +8,7 @@ const forecast = (latitude, longitude, callback) => {
     
     // 'https://api.openweathermap.org/data/2.5/weather?lat=45.5&lon=72.5&appid=1ebb1b1b6ad712978fad167aed8562b4&units=metric'
 
-    
-
-    
-
-    request({url, json: true}, (error, { body }) => {
+        request({url, json: true}, (error, { body }) => {
         if (error) {
             callback('Unable to connect to the weather service!', undefined)
             
